@@ -12,8 +12,15 @@ export class ProjectService {
 
   constructor(private http: HttpClient) { }
 
-  public getProjects(url : string) : Observable<Project[]> {
+  getProjects(url : string) : Observable<Project[]> {
     console.log(url);
     return this.http.get<Project[]>(url)
+  }
+  createProject(project : Project) {
+    return this.http.post(CONFIG.apiUrl, project);
+  }
+
+  deleteProject(id: string) {
+    return this.http.delete(`${CONFIG.deleteProject}/${id}`);
   }
 }

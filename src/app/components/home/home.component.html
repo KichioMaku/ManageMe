@@ -1,5 +1,7 @@
 <div class="home-component">
-    <h1>Available projects:</h1>
+    <h1>Available projects:
+        <button (click)="createProject()">Create Project</button>
+    </h1>
     <div class="separator"></div> 
     <div class="projects-list">
       <div class="project-card" *ngFor="let singleProject of projects">
@@ -7,9 +9,9 @@
             <div [routerLink]="['/printers', singleProject.projectId]">
                 <h2>{{ singleProject.name }}</h2>
                 <p>{{ singleProject.description }}</p>
-              </div>
+            </div>
+            <button (click)="deleteProject(singleProject.projectId, singleProject.name)">Delete</button>
         </div>
       </div>
     </div>
-  </div>
-  
+</div>
