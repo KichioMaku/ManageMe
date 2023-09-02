@@ -31,7 +31,62 @@
       background-color: #000000;
       margin: 20px 0;
     }
-  
+    .project-form {
+        border: 1px solid #e0e0e0;
+        background-color: #f8f9fa; 
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+        label {
+          display: block;
+          margin-bottom: 10px;
+          font-weight: bold;
+        }
+    
+        input[type="text"] {
+          width: 98%;
+          padding: 10px;
+          border: 1px solid #e0e0e0;
+          border-radius: 4px;
+          margin-bottom: 20px;
+        }
+    
+        button {
+          padding: 8px 16px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s, transform 0.2s;
+          margin-right: 10px;
+          
+          &:last-child {
+            margin-right: 0;
+          }
+    
+          &:first-child {
+            background-color: #28a745; 
+            color: white;
+    
+            &:hover {
+              background-color: darken(#28a745, 10%);
+              transform: scale(1.05); 
+            }
+          }
+    
+          &:last-child {
+            background-color: #ffc107; 
+            color: white;
+    
+            &:hover {
+              background-color: darken(#ffc107, 10%);
+              transform: scale(1.05); 
+            }
+          }
+        }
+      }
+
     .projects-list {
   
       .project-card {
@@ -41,6 +96,7 @@
         border-radius: 5px;
         position: relative;
         transition: box-shadow 0.3s;
+        background-color: #f8f9fa; 
   
         &:hover {
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);

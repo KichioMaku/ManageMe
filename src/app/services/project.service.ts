@@ -17,7 +17,7 @@ export class ProjectService {
     return this.http.get<Project[]>(url)
   }
   createProject(project : Project) {
-    return this.http.post(CONFIG.apiUrl, project);
+    return this.http.post(CONFIG.createProject, project);
   }
 
   deleteProject(id: string) {

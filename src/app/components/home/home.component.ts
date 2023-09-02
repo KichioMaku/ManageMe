@@ -14,10 +14,33 @@ import { ProjectService } from 'src/app/services/project.service';
 export class HomeComponent {
     projects : Project[] = [];
     editForms: { [key: string]: FormGroup } = {};
+
+    showForm = false; // Control the visibility of the form
+    project = {
+      name: '',
+      description: ''
+    };
+
     private subscription: Subscription = new Subscription();
     constructor(private route: ActivatedRoute, private projectService: ProjectService) {
     }
-
+    
+    createProject() {
+      this.showForm = true;
+    }
+  
+    onSubmit() {
+      console.log(this.project);
+      this.showForm = false;
+      this.projectService.createProject(new Project("0", this.project.name, this.project.description)).subscribe(() =>  this.getProjects());
+    }
+    
+    cancel() {
+      this.project.description = '';
+      this.project.name = '';
+      this.showForm = false;
+    }
+    
     ngOnInit() {
       this.getProjects();
     }
@@ -32,18 +55,6 @@ export class HomeComponent {
       this.projectService
       .getProjects(CONFIG.getProjects)
       .subscribe((result: Project[]) => (this.projects = result));
-    }
-
-    createProject() {
-      const newProject = {
-        name: 'New Project',
-        description: 'New project description',
-        projectId: "0"
-      };
-      
-      this.projectService.createProject(newProject).subscribe(() => {
-        this.getProjects();
-      });
     }
   
     deleteProject(projectId: string, projectName: string): void {
