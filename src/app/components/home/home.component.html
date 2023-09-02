@@ -1,0 +1,15 @@
+<div class="home-component">
+    <h1>Available projects:</h1>
+    <div class="separator"></div> 
+    <div class="projects-list">
+      <div class="project-card" *ngFor="let singleProject of projects">
+        <div class="project-card-text">
+            <div [routerLink]="['/printers', singleProject.projectId]">
+                <h2>{{ singleProject.name }}</h2>
+                <p>{{ singleProject.description }}</p>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
