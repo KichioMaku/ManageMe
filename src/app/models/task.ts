@@ -1,3 +1,5 @@
+import { Priority } from "../enums/priority";
+import { State } from "../enums/state";
 import { Functionality } from "./functionality";
 import { User } from "./user";
 
