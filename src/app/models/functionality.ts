@@ -1,3 +1,5 @@
+import { Priority } from "../enums/priority";
+import { State } from "../enums/state";
 import { User } from "./user";
 
 export class Functionality {

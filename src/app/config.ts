@@ -4,5 +4,6 @@ export const CONFIG = {
     apiUrl: apiUrl,
     getProjects: `${apiUrl}/projects`,
     deleteProject: `${apiUrl}/projects`,
-    createProject:`${apiUrl}/projects`
+    createProject:`${apiUrl}/projects`,
+    getFunctionalities: `${apiUrl}/projects/`,
 }

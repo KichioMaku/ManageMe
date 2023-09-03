@@ -25,7 +25,7 @@
     <div class="projects-list">
       <div class="project-card" *ngFor="let singleProject of projects">
         <div class="project-card-text">
-            <div [routerLink]="['/printers', singleProject.projectId]">
+            <div [routerLink]="['/projects', singleProject.projectId]">
                 <h2>{{ singleProject.name }}</h2>
                 <p>{{ singleProject.description }}</p>
             </div>

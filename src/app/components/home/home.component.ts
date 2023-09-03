@@ -26,6 +26,8 @@ export class HomeComponent {
     }
     
     createProject() {
+      this.project.description = '';
+      this.project.name = '';
       this.showForm = true;
     }
   
@@ -34,10 +36,7 @@ export class HomeComponent {
       this.showForm = false;
       this.projectService.createProject(new Project("0", this.project.name, this.project.description)).subscribe(() =>  this.getProjects());
     }
-    
     cancel() {
-      this.project.description = '';
-      this.project.name = '';
       this.showForm = false;
     }
     

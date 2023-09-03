@@ -1,0 +1,11 @@
+
+<div class="functionality-container">
+    <div class="functionality-card" *ngFor="let func of functionalities">
+      <h2>{{ func.name }}</h2>
+      <p>{{ func.description }}</p>
+      <p class="priority"><strong>Priority:</strong> {{ func.priority }}</p>
+      <p class="owner"><strong>Owner:</strong> {{ func.owner.surname }}</p>
+      <p class="state"><strong>State:</strong> {{ func.state }}</p>
+    </div>
+  </div>
+  
