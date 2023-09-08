@@ -16,5 +16,4 @@ export class Functionality {
         this.surname = surname;
         this.state = state;
     }
-
 }

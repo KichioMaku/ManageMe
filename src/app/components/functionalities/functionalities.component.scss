@@ -1,40 +1,140 @@
-.functionality-container {
+.functionalities-component {
+  padding: 20px;
+
+  h1 {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;  
-    padding: 20px;
-  
-    .functionality-card {
-      flex: 0 0 calc(33.333% - 20px);  
-      background: #FFFFFF;
-      border: 1px solid #E0E0E0;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    button {
+      display: flex;
+      margin-left: auto;
+      background-color: #28a745; 
+      color: white;
+      border: none;
+      padding: 10px 20px;
       border-radius: 5px;
-      padding: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  
-      h2 {
-        font-size: 1.5rem;
-        margin-top: 0;
-        color: #333;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+
+      &:hover {
+        background-color: darken(#28a745, 10%);
+        transform: scale(1.05); 
       }
-  
-      p {
-        color: #666;
-        font-size: 1rem;
-        margin-bottom: 10px;
-  
-        &.priority, &.owner, &.state {
-          font-weight: bold;
+    }
+  }
+
+  .separator {
+    height: 1px;
+    background-color: #000000;
+    margin: 20px 0;
+  }
+
+  .functionality-form {
+    border: 1px solid #e0e0e0;
+    background-color: #f8f9fa; 
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"], select {
+      width: 98%;
+      padding: 10px;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      margin-right: 10px;
+      
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:first-child {
+        background-color: #28a745; 
+        color: white;
+
+        &:hover {
+          background-color: darken(#28a745, 10%);
+          transform: scale(1.05); 
         }
-  
-        &.owner {
-          color: #007BFF; 
-        }
-  
-        &.state {
-          color: #DC3545;
+      }
+
+      &:last-child {
+        background-color: #ffc107; 
+        color: white;
+
+        &:hover {
+          background-color: darken(#ffc107, 10%);
+          transform: scale(1.05); 
         }
       }
     }
   }
-  
+
+  .functionality-container {
+
+    .functionality-card {
+      border: 1px solid #e0e0e0;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      position: relative;
+      background-color: #f8f9fa; 
+      font-size: 1.2em; // Increase the font size here
+
+      display: flex; // Make the card a flex container
+      flex-direction: row; // Set the direction to row to align items horizontally
+      justify-content: space-between; // Space the items out evenly
+      align-items: center; // Align the items vertically
+
+      &:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      h2, .priority, .owner, .state {
+        margin: 0;
+        padding: 0 10px; // Add some padding to space out the text
+      }
+
+      .priority, .owner, .state {
+        flex: 1; // Allow these items to grow and take up equal space
+      }
+
+      button {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+        background-color: #dc3545;
+        color: white;
+
+        &:hover {
+          background-color: darken(#dc3545, 10%);
+          transform: scale(1.05);
+        }
+
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

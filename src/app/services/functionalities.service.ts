@@ -19,7 +19,15 @@ export class FunctionalitiesService {
     return this.http.get<User[]>(url);
   }
   createFunctionality(functionality : Functionality, projectId : string) {
-    console.log(`${CONFIG.deleteProject}/${projectId}`);
-    return this.http.post(`${CONFIG.deleteProject}/${projectId}`, functionality);
+    console.log(functionality);
+    return this.http.post(`${CONFIG.createFunctionality}/${projectId}`, functionality);
+  }
+
+  updateFunctionality(functionality : Functionality, projectId : string) {
+    console.log(functionality);
+    return this.http.put(`${CONFIG.createFunctionality}/${projectId}`, functionality);
+  }
+  deleteFunctionality(id: string) {
+    return this.http.delete(`${CONFIG.deleteFunctionality}/${id}`);
   }
 }

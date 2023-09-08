@@ -1,9 +1,9 @@
 <div class = "functionalities-component">
-  <h1>Available projects:
+  <h1 [innerText]="HeaderText">
     <button (click)="createFunctionality()">Create Functionality</button>
 </h1>
 
-<div *ngIf="showForm" class="project-form">
+<div *ngIf="showForm" class="functionality-form">
   <form (ngSubmit)="onSubmit()" #functionalityForm="ngForm">
     <div>
       <label for="name">Name:</label>
@@ -32,12 +32,13 @@
       </select>
     </div>
     <div>
-      <button type="submit" [disabled]="!functionalityForm.form.valid">Create</button>
+      <button type="submit" [disabled]="!functionalityForm.form.valid" [innerText]="buttonOkText"></button>
       <button type="button" (click)="cancel()">Cancel</button>
     </div>
   </form>
 </div>
 
+<div class="separator"></div> 
 
   <div class="functionality-container">
       <div class="functionality-card" *ngFor="let func of functionalities">
@@ -46,6 +47,8 @@
         <p class="priority"><strong>Priority:</strong> {{ func.priority }}</p>
         <p class="owner"><strong>Owner:</strong> {{ func.surname }}</p>
         <p class="state"><strong>State:</strong> {{ func.state }}</p>
+        <button (click)="editFunctionality(func)">Edit</button>
+        <button (click)="deleteFunctionality(func.functionalityId, func.name)">Delete</button>
       </div>
     </div>
   </div>

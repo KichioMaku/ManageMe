@@ -7,12 +7,14 @@ import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { RouterModule } from '@angular/router';
 import { FunctionalitiesComponent } from './components/functionalities/functionalities.component';
+import { TasksComponent } from './components/tasks/tasks/tasks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    FunctionalitiesComponent
+    FunctionalitiesComponent,
+    TasksComponent
   ],
   imports: [
     BrowserModule,
