@@ -1,8 +1,8 @@
 <div class = "functionalities-component">
-  <h1 [innerText]="HeaderText">
+  <div class="top-bar">
+    <h1 [textContent]="HeaderText"> </h1>
     <button (click)="createFunctionality()">Create Functionality</button>
-</h1>
-
+  </div>
 <div *ngIf="showForm" class="functionality-form">
   <form (ngSubmit)="onSubmit()" #functionalityForm="ngForm">
     <div>
@@ -37,7 +37,6 @@
     </div>
   </form>
 </div>
-
 <div class="separator"></div> 
 
   <div class="functionality-container">
@@ -47,9 +46,10 @@
         <p class="priority"><strong>Priority:</strong> {{ func.priority }}</p>
         <p class="owner"><strong>Owner:</strong> {{ func.surname }}</p>
         <p class="state"><strong>State:</strong> {{ func.state }}</p>
+        <button class="task-button" [routerLink]="[func.functionalityId]">Tasks</button>
         <button (click)="editFunctionality(func)">Edit</button>
-        <button (click)="deleteFunctionality(func.functionalityId, func.name)">Delete</button>
-      </div>
+        <button (click)="deleteFunctionality(func.functionalityId, func.name )">Delete</button>
     </div>
   </div>
+
     

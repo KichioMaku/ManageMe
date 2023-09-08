@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Functionality } from '../models/functionality';
 import { CONFIG } from '../config';
 import { User } from '../models/user';
+import { Task } from '../models/task';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,9 @@ export class FunctionalitiesService {
   }
   deleteFunctionality(id: string) {
     return this.http.delete(`${CONFIG.deleteFunctionality}/${id}`);
+  }
+  public getTasks(url : string) : Observable<Task[]>{
+    let tasks = this.http.get<Task[]>(url);
+    return tasks;
   }
 }

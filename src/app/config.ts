@@ -8,5 +8,8 @@ export const CONFIG = {
     getFunctionalities: `${apiUrl}/projects/`,
     createFunctionality: `${apiUrl}/projects`,
     deleteFunctionality: `${apiUrl}/projectsDeleteFunc`,
-    getUsers: `${apiUrl}/users/`
+    getUsers: `${apiUrl}/users`,
+    getTasks: `${apiUrl}/tasks/`,
+    createTask: `${apiUrl}/tasks`,
+    deleteTask: `${apiUrl}/deleteTask`
 }

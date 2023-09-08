@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Functionality } from 'src/app/models/functionality';
-import { Subscription, interval } from 'rxjs';
+import { Subscription, concatWith, config, interval } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { FunctionalitiesService } from 'src/app/services/functionalities.service';
 import { CONFIG } from 'src/app/config';
 import { Priority } from 'src/app/enums/priority';
 import { State } from 'src/app/enums/state';
 import { User } from 'src/app/models/user';
+import { Task } from 'src/app/models/task';
 
 @Component({
   selector: 'app-functionalities',
@@ -51,6 +52,7 @@ export class FunctionalitiesComponent {
       .getFunctionalities(url)
       .subscribe((result: Functionality[]) => (this.functionalities = result));
     }
+
     createFunctionality() {
       this.functionality.description = '';
       this.functionality.name = '';
@@ -83,6 +85,12 @@ export class FunctionalitiesComponent {
       this.functionalitiesService
       .getUsers(url)
       .subscribe((result: User[]) => (this.users = result));
+    }
+
+    getTasks(url : string) : void{
+      this.functionalitiesService
+      .getTasks(url)
+      .subscribe((result: Task[]) => (result));
     }
 
     editFunctionality(func : Functionality){

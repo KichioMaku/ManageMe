@@ -1,32 +1,31 @@
 import { Priority } from "../enums/priority";
 import { State } from "../enums/state";
-import { Functionality } from "./functionality";
 import { User } from "./user";
 
 export class Task{
     taskId: string;
     description: string;
-    priority: Priority;
-    functionality: Functionality;
+    priority: string;
+    functionalityId: string;
     deadline: Date;
-    state: State;
+    state: string;
     addDate: Date;
-    startDate: Date;
-    endDate: Date;
-    user: User
+    startDate: string;
+    endDate: string;
+    userId: string;
 
 
-    constructor(taskId: string, description: string, priority: Priority, functionality: Functionality, deadline: Date, state: State, addDate: Date, startDate: Date, endDate: Date, user: User) {
+    constructor(taskId: string, description: string, priority: string, functionalityId: string, deadline: Date, state: string, addDate: Date, startDate: string, endDate: string, userId: string) {
         this.taskId = taskId;
         this.description = description;
         this.priority = priority;
-        this.functionality = functionality;
+        this.functionalityId = functionalityId;
         this.deadline = deadline;
         this.state = state;
         this.addDate = addDate;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.user = user;
+        this.userId = userId;
     }
 }
 

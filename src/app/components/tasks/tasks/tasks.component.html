@@ -1,1 +1,50 @@
-<p>tasks works!</p>
+<div class = "tasks-component">
+    <div class="top-bar">
+      <h1 [textContent]="HeaderText"> </h1>
+      <button (click)="createTask()">Create Task</button>
+    </div>
+  <div *ngIf="showForm" class="task-form">
+    <form (ngSubmit)="onSubmit()" #functionalityForm="ngForm">
+      <div>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" [(ngModel)]="task.description" required>
+      </div>
+      <div>
+        <label for="priority">Priority:</label>
+        <select id="priority" name="priority" [(ngModel)]="task.priority" required>
+          <option *ngFor="let priorityKey of priorityKeys" [value]="priorityKey">{{ priorityKey }}</option>
+        </select>
+      </div>
+      <div>
+        <label for="deadline">Deadline:</label>
+        <input type="date" id="deadline" name="deadline" [(ngModel)]="task.deadline" required>
+      </div>
+      <div>
+        <label for="state">State:</label>
+        <select id="state" name="state" [(ngModel)]="task.state" required>
+          <option *ngFor="let stateKey of stateKeys" [value]="stateKey">{{ stateKey }}</option>
+        </select>
+      </div>
+      <div>
+        <button type="submit" [disabled]="!functionalityForm.form.valid" [innerText]="buttonOkText"></button>
+        <button type="button" (click)="cancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+  <div class="separator"></div> 
+  
+    <div class="task-container">
+        <div class="task-card" *ngFor="let task of tasks">
+          <h2>{{ task.taskId }}</h2>
+          <p>{{ task.description }}</p>
+          <p>Deadline: {{ task.deadline }}</p>
+          <p>Started: {{ task.startDate }}</p>
+          <p class="priority"><strong>Priority:</strong> {{ task.priority }}</p>
+          <p class="state"><strong>State:</strong> {{ task.state }}</p>
+          <p>endDate: {{ task.endDate }}</p>
+          <button (click)="editTask(task)">Edit</button>
+          <button (click)="deleteTask(task.taskId)">Delete</button>
+      </div>
+    </div>
+  
+      
