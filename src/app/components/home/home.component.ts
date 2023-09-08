@@ -15,7 +15,7 @@ export class HomeComponent {
     projects : Project[] = [];
     editForms: { [key: string]: FormGroup } = {};
 
-    showForm = false; // Control the visibility of the form
+    showForm = false;
     project = {
       name: '',
       description: ''
@@ -30,10 +30,10 @@ export class HomeComponent {
       this.project.name = '';
       this.showForm = true;
     }
-  
     onSubmit() {
       console.log(this.project);
       this.showForm = false;
+
       this.projectService.createProject(new Project("0", this.project.name, this.project.description)).subscribe(() =>  this.getProjects());
     }
     cancel() {

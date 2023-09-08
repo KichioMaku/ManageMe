@@ -6,4 +6,6 @@ export const CONFIG = {
     deleteProject: `${apiUrl}/projects`,
     createProject:`${apiUrl}/projects`,
     getFunctionalities: `${apiUrl}/projects/`,
+    createFunctionality: `${apiUrl}/projects/`,
+    getUsers: `${apiUrl}/users/`
 }

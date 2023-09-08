@@ -1,11 +1,52 @@
+<div class = "functionalities-component">
+  <h1>Available projects:
+    <button (click)="createFunctionality()">Create Functionality</button>
+</h1>
 
-<div class="functionality-container">
-    <div class="functionality-card" *ngFor="let func of functionalities">
-      <h2>{{ func.name }}</h2>
-      <p>{{ func.description }}</p>
-      <p class="priority"><strong>Priority:</strong> {{ func.priority }}</p>
-      <p class="owner"><strong>Owner:</strong> {{ func.owner.surname }}</p>
-      <p class="state"><strong>State:</strong> {{ func.state }}</p>
+<div *ngIf="showForm" class="project-form">
+  <form (ngSubmit)="onSubmit()" #functionalityForm="ngForm">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" [(ngModel)]="functionality.name" required>
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <input type="text" id="description" name="description" [(ngModel)]="functionality.description" required>
+    </div>
+    <div>
+      <label for="priority">Priority:</label>
+      <select id="priority" name="priority" [(ngModel)]="functionality.priority" required>
+        <option *ngFor="let priorityKey of priorityKeys" [value]="priorityKey">{{ priorityKey }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="user">Surname:</label>
+      <select id="user" name="user" [(ngModel)]="functionality.userId" required>
+        <option *ngFor="let user of users" [value]="user.userId">{{ user.surname }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="state">State:</label>
+      <select id="state" name="state" [(ngModel)]="functionality.state" required>
+        <option *ngFor="let stateKey of stateKeys" [value]="stateKey">{{ stateKey }}</option>
+      </select>
+    </div>
+    <div>
+      <button type="submit" [disabled]="!functionalityForm.form.valid">Create</button>
+      <button type="button" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>
+
+
+  <div class="functionality-container">
+      <div class="functionality-card" *ngFor="let func of functionalities">
+        <h2>{{ func.name }}</h2>
+        <p>{{ func.description }}</p>
+        <p class="priority"><strong>Priority:</strong> {{ func.priority }}</p>
+        <p class="owner"><strong>Owner:</strong> {{ func.surname }}</p>
+        <p class="state"><strong>State:</strong> {{ func.state }}</p>
+      </div>
     </div>
   </div>
-  
+    
